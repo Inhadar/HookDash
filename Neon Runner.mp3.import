@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Neon Runner.mp3-4c7dcebc2ac9b089ef280a7e4cc0c596.mp3str"
+
+[deps]
+
+source_file="res://Neon Runner.mp3"
+dest_files=[ "res://.import/Neon Runner.mp3-4c7dcebc2ac9b089ef280a7e4cc0c596.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

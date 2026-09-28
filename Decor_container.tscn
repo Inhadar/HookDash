@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Menu_background/Tepe1.gd" type="Script" id=1]
+[ext_resource path="res://Menu_background/Agac1.gd" type="Script" id=2]
+[ext_resource path="res://Menu_background/Bulud1.gd" type="Script" id=3]
+[ext_resource path="res://Menu_background/Dag1.gd" type="Script" id=4]
+[ext_resource path="res://Teze_Asset/dusuk_butceli_tepe.png" type="Texture" id=5]
+[ext_resource path="res://Teze_Asset/cikkili bulud.png" type="Texture" id=6]
+[ext_resource path="res://Teze_Asset/Agac.png" type="Texture" id=7]
+[ext_resource path="res://Teze_Asset/dusuk_butceli_dag.png" type="Texture" id=8]
+
+[node name="Decor_container" type="Node2D"]
+position = Vector2( 864, 88.6425 )
+
+[node name="Bulud1" type="Sprite" parent="."]
+position = Vector2( -3567.9, 592.472 )
+scale = Vector2( 2.63094, 2.63094 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+
+[node name="Bulud2" type="Sprite" parent="."]
+position = Vector2( 5598.02, 592.472 )
+scale = Vector2( 2.63094, 2.63094 )
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+
+[node name="Dag1" type="Sprite" parent="."]
+position = Vector2( -2430.45, 996.425 )
+scale = Vector2( 1.37545, 0.783417 )
+texture = ExtResource( 8 )
+script = ExtResource( 4 )
+
+[node name="Dag2" type="Sprite" parent="."]
+position = Vector2( 3049.55, 996.425 )
+scale = Vector2( 1.37545, 0.783417 )
+texture = ExtResource( 8 )
+script = ExtResource( 4 )
+
+[node name="Agac1" type="Sprite" parent="."]
+position = Vector2( -1250.71, 1109.39 )
+scale = Vector2( 2.16263, 2.47548 )
+texture = ExtResource( 7 )
+script = ExtResource( 2 )
+
+[node name="Agac2" type="Sprite" parent="."]
+position = Vector2( 9506.13, 1050.07 )
+scale = Vector2( 2.16263, 2.47548 )
+texture = ExtResource( 7 )
+script = ExtResource( 2 )
+
+[node name="Tepe2" type="Sprite" parent="."]
+position = Vector2( 2518.7, 1513.21 )
+scale = Vector2( 0.989049, 1.19226 )
+texture = ExtResource( 5 )
+script = ExtResource( 1 )
+
+[node name="Tepe1" type="Sprite" parent="."]
+position = Vector2( -1429.87, 1513.21 )
+scale = Vector2( 0.989049, 1.19226 )
+texture = ExtResource( 5 )
+script = ExtResource( 1 )

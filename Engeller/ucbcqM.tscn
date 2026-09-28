@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Teze_Asset/Ilkin_Engeller_player-01.png" type="Texture" id=1]
+[ext_resource path="res://Engeller/ucbcqM.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 1.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "efect"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.236856, 0.236856 ), Vector2( 0.320909, 0.320909 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="ucbcqM" type="RigidBody2D" groups=[
+"Engel",
+]]
+position = Vector2( 648.574, 591.557 )
+collision_layer = 8
+collision_mask = 11
+mass = 100.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+scale = Vector2( 0.236856, 0.236856 )
+texture = ExtResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+scale = Vector2( 0.236856, 0.236856 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+root_node = NodePath("../Sprite2")
+anims/efect = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -1.94042, -0.00311504 )
+scale = Vector2( 1.04044, 1.04044 )
+polygon = PoolVector2Array( -131.076, 114.698, 1.52399, -114.543, 128.131, 113.949 )

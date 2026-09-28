@@ -1,0 +1,708 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Teze_Asset/OPTI_BUTTON_PRESS_DARK.png" type="Texture" id=1]
+[ext_resource path="res://Teze_Asset/START_BUTTON_PRESS_DARK.png" type="Texture" id=2]
+[ext_resource path="res://Teze_Asset/OPTI_BUTTON_NOPRESS.png" type="Texture" id=3]
+[ext_resource path="res://Teze_Asset/NEW_QUIT_BUTTON_PRESS.png" type="Texture" id=4]
+[ext_resource path="res://Teze_Asset/NEW_BACK_BUTTON_PRESS (1).png" type="Texture" id=5]
+[ext_resource path="res://Hud_Assets/9.png" type="Texture" id=6]
+[ext_resource path="res://Hud_Assets/13.png" type="Texture" id=7]
+[ext_resource path="res://for_press-02.png" type="Texture" id=8]
+[ext_resource path="res://Menu.gd" type="Script" id=9]
+[ext_resource path="res://sound_icon.png" type="Texture" id=10]
+[ext_resource path="res://nota_icon.png" type="Texture" id=11]
+[ext_resource path="res://Teze_Asset/START_BUTTON_NOPRESS.png" type="Texture" id=12]
+[ext_resource path="res://Block_assets/divar.png" type="Texture" id=13]
+[ext_resource path="res://Teze_Asset/NEW_QUIT_BUTTON_NOPRESS.png" type="Texture" id=14]
+[ext_resource path="res://Teze_Asset/NEW_BACK_BUTTON_NOPRESS (1).png" type="Texture" id=15]
+[ext_resource path="res://Decor_container.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Teze_Asset/sound_bar_corner (1).png" type="Texture" id=17]
+[ext_resource path="res://Teze_Asset/sound_grabber (2).png" type="Texture" id=18]
+[ext_resource path="res://Teze_Asset/sound_bar (2).png" type="Texture" id=19]
+[ext_resource path="res://fonts/FredokaOne-Regular.otf" type="DynamicFontData" id=20]
+[ext_resource path="res://Hud_Assets/8.png" type="Texture" id=21]
+[ext_resource path="res://Hud_Assets/7.png" type="Texture" id=22]
+[ext_resource path="res://Hud_Assets/11.png" type="Texture" id=23]
+[ext_resource path="res://for_press-01.png" type="Texture" id=24]
+[ext_resource path="res://inhos_splash.png" type="Texture" id=25]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float blur :hint_range(0,6) = 0.5;
+void fragment() {
+	
+	vec4 color = texture(SCREEN_TEXTURE,SCREEN_UV,blur);
+	COLOR = color;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/blur = 1.5
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 150
+use_filter = true
+font_data = ExtResource( 20 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 0, 650 )
+modulate_color = Color( 0.176471, 0.223529, 0.266667, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 1280, 1280 )
+modulate_color = Color( 0.0745098, 0.117647, 0.164706, 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 1280, 1280 )
+modulate_color = Color( 0.0745098, 0.117647, 0.164706, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+use_filter = true
+font_data = ExtResource( 20 )
+
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform float blur :hint_range(0,6) = 0.5;
+void fragment() {
+	
+	vec4 color = texture(SCREEN_TEXTURE,SCREEN_UV,blur);
+	COLOR = color;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+shader_param/blur = 1.5
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 70
+font_data = ExtResource( 20 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=14]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6, 2, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=15]
+size = 100
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 60
+font_data = ExtResource( 20 )
+
+[node name="Menu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 872.525, 707.062, 537.357 ],
+"_edit_vertical_guides_": [ 539.446, 426.805, 658.597, 268.324, 359.141 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decor_container" parent="." instance=ExtResource( 16 )]
+visible = false
+
+[node name="Bulud1" parent="Decor_container" index="0"]
+position = Vector2( -3575.03, 599.599 )
+
+[node name="Bulud2" parent="Decor_container" index="1"]
+position = Vector2( 5600.97, 599.599 )
+
+[node name="Dag1" parent="Decor_container" index="2"]
+position = Vector2( -2417.75, 1123.33 )
+
+[node name="Dag2" parent="Decor_container" index="3"]
+position = Vector2( 3062.25, 1123.33 )
+
+[node name="Agac1" parent="Decor_container" index="4"]
+position = Vector2( -1715.25, 1211.91 )
+
+[node name="Tepe2" parent="Decor_container" index="6"]
+position = Vector2( 2553.36, 1651.17 )
+
+[node name="Tepe1" parent="Decor_container" index="7"]
+position = Vector2( -1350.6, 1641.51 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 4.0
+margin_top = -256.0
+margin_right = 44.0
+margin_bottom = -216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_area_border" type="Sprite" parent="Control"]
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 7 )
+
+[node name="Score_area" type="Sprite" parent="Control"]
+position = Vector2( 0.210205, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+
+[node name="best" type="Label" parent="Control"]
+anchor_left = -4.0
+anchor_top = -3.912
+anchor_right = -4.0
+anchor_bottom = -3.912
+margin_left = 44.0103
+margin_top = -48.6661
+margin_right = 266.01
+margin_bottom = 25.3339
+custom_fonts/font = SubResource( 3 )
+text = "1st: 000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="second" type="Label" parent="Control"]
+anchor_left = -4.0
+anchor_top = -3.6
+anchor_right = -4.0
+anchor_bottom = -3.6
+margin_left = 43.711
+margin_top = 110.649
+margin_right = 287.711
+margin_bottom = 184.649
+rect_scale = Vector2( 0.95, 0.95 )
+custom_fonts/font = SubResource( 3 )
+text = "2nd:000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="third" type="Label" parent="Control"]
+anchor_left = -4.0
+anchor_top = -3.6
+anchor_right = -4.0
+anchor_bottom = -3.6
+margin_left = 43.2307
+margin_top = 277.464
+margin_right = 278.231
+margin_bottom = 351.464
+rect_scale = Vector2( 0.95, 0.95 )
+custom_fonts/font = SubResource( 3 )
+text = "3rd: 000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Node2D" parent="."]
+visible = false
+position = Vector2( 537, 1078.94 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Start" type="TextureButton" parent="Buttons"]
+margin_left = -606.667
+margin_top = 1060.68
+margin_right = 673.333
+margin_bottom = 2340.68
+rect_pivot_offset = Vector2( 640, 645.787 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Buttons"]
+margin_left = -1521.78
+margin_top = 255.519
+margin_right = -241.777
+margin_bottom = 1535.52
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 638.098, 653.004 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="Buttons"]
+margin_left = 297.882
+margin_top = 264.246
+margin_right = 1577.88
+margin_bottom = 1544.25
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 641.661, 631.124 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color( 0.0431373, 0.117647, 0.164706, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -363.5
+margin_top = 127.0
+margin_right = 399.5
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 4 )
+text = "Hook Dash"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="Label" parent="."]
+visible = false
+modulate = Color( 0.0431373, 0.117647, 0.164706, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -237.0
+margin_top = 186.329
+margin_right = 237.0
+margin_bottom = 378.329
+custom_fonts/font = SubResource( 4 )
+text = "Option"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sound" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+position = Vector2( 314.704, 796.332 )
+scale = Vector2( 1.59235, 1.70472 )
+texture = ExtResource( 10 )
+
+[node name="nota" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+position = Vector2( 310.414, 650.607 )
+scale = Vector2( 2.0671, 2.0671 )
+texture = ExtResource( 11 )
+
+[node name="H1" type="Node2D" parent="."]
+visible = false
+position = Vector2( 78, 0 )
+
+[node name="H1" type="Sprite" parent="H1"]
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+position = Vector2( 357.898, 634.871 )
+scale = Vector2( 0.0456642, 0.0381036 )
+texture = ExtResource( 17 )
+
+[node name="H2" type="Sprite" parent="H1"]
+modulate = Color( 0.176471, 0.223529, 0.266667, 1 )
+position = Vector2( 766.103, 634.834 )
+scale = Vector2( 0.0487847, 0.0381842 )
+texture = ExtResource( 17 )
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+margin_left = 449.0
+margin_top = 589.834
+margin_right = 6376.0
+margin_bottom = 1869.83
+rect_scale = Vector2( 0.07, 0.07 )
+size_flags_stretch_ratio = 0.0
+custom_icons/grabber_highlight = ExtResource( 18 )
+custom_icons/grabber = ExtResource( 18 )
+custom_styles/slider = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 6 )
+custom_styles/grabber_area = SubResource( 7 )
+min_value = -80.0
+max_value = 0.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="H2" type="Node2D" parent="."]
+visible = false
+position = Vector2( 78, 156.801 )
+
+[node name="H1" type="Sprite" parent="H2"]
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+position = Vector2( 357.898, 635.045 )
+scale = Vector2( 0.0456642, 0.0381036 )
+texture = ExtResource( 17 )
+
+[node name="H2" type="Sprite" parent="H2"]
+modulate = Color( 0.176471, 0.223529, 0.266667, 1 )
+position = Vector2( 766.103, 634.834 )
+scale = Vector2( 0.0487847, 0.0381842 )
+texture = ExtResource( 17 )
+
+[node name="HSlider2" type="HSlider" parent="."]
+visible = false
+margin_left = 449.118
+margin_top = 746.634
+margin_right = 6376.12
+margin_bottom = 2026.63
+rect_scale = Vector2( 0.07, 0.07 )
+size_flags_stretch_ratio = 0.0
+custom_icons/grabber_highlight = ExtResource( 18 )
+custom_icons/grabber = ExtResource( 18 )
+custom_styles/slider = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 6 )
+custom_styles/grabber_area = SubResource( 7 )
+min_value = -80.0
+max_value = -10.0
+page = -10.0
+value = -10.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="."]
+visible = false
+margin_left = 411.016
+margin_top = 1613.51
+margin_right = 1691.02
+margin_bottom = 2893.51
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control2"]
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+position = Vector2( -416.898, 365.37 )
+scale = Vector2( 1.02017, 0.03904 )
+texture = ExtResource( 13 )
+
+[node name="score" type="Label" parent="Control2"]
+modulate = Color( 0.0745098, 0.117647, 0.164706, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -532.0
+margin_top = 290.69
+margin_right = -483.0
+margin_bottom = 387.69
+custom_fonts/font = SubResource( 8 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decor_Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Restart" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Restart"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.933333, 0.933333, 0.933333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Restart"]
+material = SubResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.933333, 0.933333, 0.933333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Restart"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 570.72
+margin_top = 718.833
+margin_right = 570.72
+margin_bottom = 718.833
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Score_area" type="Sprite" parent="Restart/Control"]
+position = Vector2( 0, -254.2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Score_area2" type="Sprite" parent="Restart/Control"]
+position = Vector2( 0, -94.2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Buttons" type="Node2D" parent="Restart"]
+position = Vector2( 544, 768 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Restart" type="TextureButton" parent="Restart/Buttons"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = 960.0
+margin_right = 640.0
+margin_bottom = 2240.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartBack" type="TextureButton" parent="Restart/Buttons"]
+margin_left = -1386.67
+margin_top = 2133.33
+margin_right = -573.663
+margin_bottom = 2946.33
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartOptions" type="TextureButton" parent="Restart/Buttons"]
+margin_left = 533.336
+margin_top = 2133.33
+margin_right = 1346.34
+margin_bottom = 2946.33
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Best" type="Label" parent="Restart"]
+margin_left = 305.0
+margin_top = 419.0
+margin_right = 543.0
+margin_bottom = 470.0
+custom_fonts/font = SubResource( 11 )
+text = "Best: 000 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="You" type="Label" parent="Restart"]
+margin_left = 301.346
+margin_top = 583.713
+margin_right = 536.346
+margin_bottom = 643.713
+custom_fonts/font = SubResource( 11 )
+text = "You: 000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tap" type="Node2D" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="Tap"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1106.0
+margin_bottom = 2038.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tap"]
+modulate = Color( 0.0980392, 0.137255, 0.180392, 1 )
+margin_left = 281.389
+margin_top = 947.688
+margin_right = 798.389
+margin_bottom = 1033.69
+custom_fonts/font = SubResource( 12 )
+text = "press for rising"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Tap"]
+position = Vector2( 536.925, 820.504 )
+scale = Vector2( 0.220662, 0.220662 )
+frames = SubResource( 13 )
+frame = 4
+playing = true
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Splash_screen" type="Node2D" parent="."]
+pause_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash_screen"]
+anims/anim_splash = SubResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Splash_screen"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 547.22, 962.119 )
+texture = ExtResource( 25 )
+
+[node name="Credits" type="Node2D" parent="Splash_screen"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -342.879 )
+
+[node name="Label" type="Label" parent="Splash_screen/Credits"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 337.101
+margin_top = 823.0
+margin_right = 712.101
+margin_bottom = 945.0
+custom_fonts/font = SubResource( 15 )
+text = "Credits:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BY" type="Label" parent="Splash_screen/Credits"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 0.886
+margin_left = 202.168
+margin_top = 1012.49
+margin_right = 860.168
+margin_bottom = 1086.49
+custom_fonts/font = SubResource( 16 )
+text = "*Designer Inhadar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BY2" type="Label" parent="Splash_screen/Credits"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 0.886
+margin_left = 202.168
+margin_top = 1104.99
+margin_right = 907.168
+margin_bottom = 1178.99
+custom_fonts/font = SubResource( 16 )
+text = "*Developer Inhadar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BY3" type="Label" parent="Splash_screen/Credits"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 0.886
+margin_left = 202.168
+margin_top = 1203.1
+margin_right = 960.168
+margin_bottom = 1354.1
+custom_fonts/font = SubResource( 16 )
+text = "*Sound Effects by Inhadar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BY4" type="Label" parent="Splash_screen/Credits"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 0.886
+margin_left = 202.168
+margin_top = 1302.11
+margin_right = 875.168
+margin_bottom = 1453.11
+custom_fonts/font = SubResource( 16 )
+text = "*Music : \"Neon Runner\" 
+  by Eric Matyas "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="tree_entered" from="ColorRect" to="." method="_on_ColorRect_tree_entered"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="timeout" from="Decor_Timer" to="." method="_on_Decor_Timer_timeout"]
+[connection signal="pressed" from="Restart/Buttons/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Restart/Buttons/RestartBack" to="." method="_on_RestartBack_pressed"]
+[connection signal="pressed" from="Restart/Buttons/RestartOptions" to="." method="_on_RestartOptions_pressed"]
+[connection signal="button_down" from="Tap/Button" to="." method="_on_Button_button_down"]
+[connection signal="animation_finished" from="Splash_screen/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="Decor_container"]

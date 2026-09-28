@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://TouchB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Spawner/tavan_spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://fonts/FredokaOne-Regular.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://MarginContainer.gd" type="Script" id=7]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=9]
+[ext_resource path="res://Spawner/tavan_spawner_alt.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Teze_Asset/cikkili bulud.png" type="Texture" id=11]
+[ext_resource path="res://Teze_Asset/Agac.png" type="Texture" id=12]
+[ext_resource path="res://Teze_Asset/dusuk_butceli_tepe.png" type="Texture" id=13]
+[ext_resource path="res://Teze_Asset/dusuk_butceli_dag.png" type="Texture" id=14]
+[ext_resource path="res://Spawner/Engel_spawner.tscn" type="PackedScene" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 6 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 5 )
+
+[node name="tavan_spawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 326.494, 0 )
+
+[node name="Menu" parent="." instance=ExtResource( 3 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 112.043
+margin_top = 1489.77
+margin_right = 432.043
+margin_bottom = 1617.77
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 310.0
+margin_bottom = 136.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/HBoxContainer"]
+margin_bottom = 126.0
+
+[node name="stat01" type="Label" parent="Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="stat02" type="Label" parent="Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 65.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="TouchB" parent="Menu" instance=ExtResource( 1 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+bus = "Music"
+
+[node name="tavan_spawner_alt" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, 1920 )
+
+[node name="Engel_spawner" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1500, 800 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 538.494, 860.799 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 289.506, 0 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 600
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player"]
+pause_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Player/ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.48987
+margin_bottom = -4.48987
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Player/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 7800, 700 )
+
+[node name="Sprite" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 1452.25, 553.912 )
+scale = Vector2( 2.23906, 2.23907 )
+texture = ExtResource( 11 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Player/ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 4700, 0 )
+
+[node name="Sprite" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 752.777, 357.244 )
+scale = Vector2( 1.18121, 0.744711 )
+texture = ExtResource( 14 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Player/ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.5 )
+motion_mirroring = Vector2( 7000, 0 )
+
+[node name="Sprite" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 180.161, 878.264 )
+scale = Vector2( 1.40879, 1.68546 )
+texture = ExtResource( 12 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Player/ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.7 )
+motion_mirroring = Vector2( 5354.22, 0 )
+
+[node name="Sprite" type="Sprite" parent="Player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 943.451, 1450.94 )
+scale = Vector2( 1.3401, 1.67071 )
+texture = ExtResource( 13 )
+
+[node name="AdMob" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 9 )
+is_real = true
+banner_id = "ca-app-pub-4234220847582916/6052646808"
+interstitial_id = "ca-app-pub-4234220847582916/3234911773"
+rewarded_id = "ca-app-pub-4234220847582916/8609515621"
+[connection signal="back" from="Menu" to="." method="_on_Menu_back"]
+[connection signal="options" from="Menu" to="." method="_on_Menu_options"]
+[connection signal="quit" from="Menu" to="." method="_on_Menu_quit"]
+[connection signal="release_player" from="Menu" to="." method="_on_Menu_release_player"]
+[connection signal="restart" from="Menu" to="." method="_on_Menu_restart"]
+[connection signal="restartback" from="Menu" to="." method="_on_Menu_restartback"]
+[connection signal="restartoption" from="Menu" to="." method="_on_Menu_restartoption"]
+[connection signal="splash_screen_kecdi" from="Menu" to="." method="_on_Menu_splash_screen_kecdi"]
+[connection signal="start" from="Menu" to="." method="_on_Menu_start"]
+[connection signal="press" from="Menu/TouchB" to="Player" method="_on_TouchB_press"]
+[connection signal="release" from="Menu/TouchB" to="Player" method="_on_TouchB_release"]
+[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
+[connection signal="banner_failed_to_load" from="AdMob" to="." method="_on_AdMob_banner_failed_to_load"]
+[connection signal="banner_loaded" from="AdMob" to="." method="_on_AdMob_banner_loaded"]
+[connection signal="interstitial_closed" from="AdMob" to="." method="_on_AdMob_interstitial_closed"]
+
+[editable path="Player"]
